@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tv Channels</h1>
+<%= text_field_tag(:search, '', placeholder: 'Enter Channel name or Show name') %>
+
+<div id="channel-list">
+  <%= render('form') %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#search').keyup(function(){
+      var value = $(this).val();
+      search(value)
+    })
+
+    function search(data){
+      $.ajax({
+        url: '/tv_channels/search',
+        method: 'post',
+        data: {name: data},
+
+        success: function(response){
+          $('#channel-list').html(response.html)
+        }
+      })
+    }
+  })
+
+</script>
