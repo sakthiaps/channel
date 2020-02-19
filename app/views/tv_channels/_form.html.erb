@@ -15,10 +15,8 @@
         <td><%= tv_show.name %></td>
         <td><%= tv_show.tv_channel.name %></td>
         <td><%= tv_show.timing %></td>
-        <td><%= tv_show.favorite ? 'Yes' : 'No' %></td>
+        <td><%= User.first.favorite_show(tv_show.id) ? 'Yes' : 'No' %></td>
         <td><%= link_to 'Favorite', tv_channel_favroite_path(tv_channel_id: tv_show.tv_channel.id, show_id: tv_show.id), remote: true %></td>
-        <!-- <td><%#= link_to 'Edit', edit_tv_channel_path(tv_channel) %></td> -->
-        <!-- <td><%#= link_to 'Destroy', tv_channel, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

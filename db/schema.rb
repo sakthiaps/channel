@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_175405) do
+ActiveRecord::Schema.define(version: 2020_02_19_204639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tv_show_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tv_show_id"], name: "index_favorites_on_tv_show_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "tv_channels", force: :cascade do |t|
     t.string "name"
@@ -31,6 +40,14 @@ ActiveRecord::Schema.define(version: 2020_02_19_175405) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tv_channel_id", "name"], name: "index_tv_shows_on_tv_channel_id_and_name"
     t.index ["tv_channel_id"], name: "index_tv_shows_on_tv_channel_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

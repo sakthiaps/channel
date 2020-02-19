@@ -9,7 +9,14 @@ class TvChannelsController < ApplicationController
   def favroite
     respond_to do |format|
       tv_show = TvShow.find_by(id: params[:show_id])
-      if tv_show.update(favorite: true)
+      format.js { render :js => "window.location.href = '/tv_channels'" } if tv_show.blank?
+      #Set current user id.
+      #for now I am mapping default user
+
+      @current_user = User.first
+      favorite = Favorite.new(user: @current_user, tv_show_id: tv_show.id)
+
+      if favorite.save
         format.js { render :js => "window.location.href = '/tv_channels'" }
 
       else

@@ -14,51 +14,63 @@ end
 TvShow.create({
   tv_channel_id: TvChannel.first.id,
   name: 'Comedy Show',
-  timing: '8 AM'
+  timing: '8:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.first.id,
   name: 'Advertisment Show',
-  timing: '9 AM'
+  timing: '9:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.first.id,
   name: 'Movie',
-  timing: '4 PM'
+  timing: '16:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.second.id,
   name: 'Star Show',
-  timing: '11 AM'
+  timing: '11:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.second.id,
   name: 'Holiwood',
-  timing: '12 PM'
+  timing: '13:00'
 })
 TvShow.create({
   tv_channel_id: TvChannel.second.id,
   name: 'Sports Show',
-  timing: '8 AM'
+  timing: '8:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.last.id,
   name: 'Morning news',
-  timing: '7 AM'
+  timing: '7:00'
 })
 
 TvShow.create({
   tv_channel_id: TvChannel.last.id,
   name: 'Afternoon news',
-  timing: '1 PM'
+  timing: '13:00'
 })
 TvShow.create({
   tv_channel_id: TvChannel.last.id,
   name: 'Evening news',
-  timing: '8 PM'
+  timing: '20:00'
 })
+
+User.create(first_name: 'Sakthi', last_name: 'Aps', email: 'sakthi@gmail.com')
+User.create(first_name: 'Sakthi', last_name: 'A', email: 'sakthia@gmail.com')
+User.create(first_name: 'Sakthi', last_name: 'Siva', email: 'sakthiaps@gmail.com')
+
+
+
+
+
+
+
+
